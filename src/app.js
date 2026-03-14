@@ -1785,3 +1785,6 @@ window.api_for_cypress_tests = {
 // #endregion
 
 init_webgl_stuff();
+
+window._jspaintCanvas   = $canvas[0];
+window._jspaintUndoable = (typeof undoable === 'function') ? undoable : null;
