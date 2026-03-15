@@ -638,7 +638,7 @@ if ($news_indicator.text().includes("Bubblegum")) {
 // #endregion
 
 $status_text.default = () => {
-	$status_text.text(localize("For Help, click Help Topics on the Help Menu."));
+	$status_text.text("");
 };
 $status_text.default();
 
@@ -745,27 +745,6 @@ function* traverse_menu(menu_items, menu_element) {
 }
 
 const menu_document = menu_bar.element.ownerDocument;
-const extras_menu_button = menu_document.querySelector(".extras-menu-button");
-const extras_menu_popup = menu_document.getElementById(extras_menu_button.getAttribute("aria-controls"));
-
-let emoji_css = `
-	.menu-item .menu-item-label::before {
-		display: inline-block;
-		width: 1.8em;
-		margin-right: 0.2em;
-		text-align: center;
-	}
-`;
-for (const [menu_item, menu_item_element] of traverse_menu(menus["E&xtras"], extras_menu_popup)) {
-	if (menu_item.emoji_icon) {
-		emoji_css += `
-			#${menu_item_element.id} .menu-item-label::before {
-				content: "${menu_item.emoji_icon}";
-			}
-		`;
-	}
-}
-$("<style>").text(emoji_css).appendTo(menu_document.head);
 
 // Electron menu integration
 if (window.is_electron_app) {

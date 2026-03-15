@@ -790,7 +790,10 @@ const menus = {
 			//description: localize("Displays program information, version number, and copyright."),
 		},
 	],
-	[localize("E&xtras")]: [
+};
+
+// Extras menu removed
+const _removed_extras = [
 		{
 			emoji_icon: "⌚",
 			label: localize("&History"),
@@ -1396,8 +1399,7 @@ const menus = {
 			action: () => { window.open("https://www.paypal.me/IsaiahOdhner"); },
 			description: localize("Supports the project."),
 		},
-	],
-};
+];
 
 for (const [top_level_menu_key, menu] of Object.entries(menus)) {
 	const top_level_menu_name = top_level_menu_key.replace(/&/, "");
